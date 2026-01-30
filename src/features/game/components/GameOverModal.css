@@ -1,0 +1,117 @@
+.game-over-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.game-over-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    min-width: 300px;
+    max-width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.result {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.result.win {
+    color: #4caf50;
+}
+
+.result.lose {
+    color: #f44336;
+}
+
+.result.draw {
+    color: #ff9800;
+}
+
+.scores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.score-label {
+    font-size: 0.875rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.score-divider {
+    font-size: 2rem;
+    color: #999;
+}
+
+.play-again-button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.play-again-button:hover {
+    background-color: #1976d2;
+}
+
+.play-again-button:active {
+    background-color: #1565c0;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .game-over-modal {
+        padding: 1.5rem;
+        min-width: 280px;
+    }
+
+    .result {
+        font-size: 1.5rem;
+    }
+
+    .scores {
+        font-size: 1rem;
+    }
+
+    .score-value {
+        font-size: 1.5rem;
+    }
+
+    .score-divider {
+        font-size: 1.5rem;
+    }
+}

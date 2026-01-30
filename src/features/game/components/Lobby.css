@@ -1,0 +1,145 @@
+.lobby-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.lobby-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lobby-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lobby-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.lobby-title {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 25px 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+.lobby-content {
+    text-align: center;
+}
+
+.lobby-description {
+    color: #888;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.lobby-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.lobby-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.lobby-button:active {
+    transform: translateY(0);
+}
+
+.lobby-button--secondary {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+}
+
+.lobby-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lobby-buttons .lobby-button--secondary {
+    margin-top: 0;
+}
+
+.lobby-button--secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+.lobby-status {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.lobby-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.lobby-status p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.lobby-hint {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.lobby-status--searching .lobby-spinner {
+    border-top-color: #4ecdc4;
+}
