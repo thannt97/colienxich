@@ -59,21 +59,21 @@ describe('triangle-detector', () => {
     describe('hasLine', () => {
         it('should return true for existing line (forward direction)', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } }
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' }
             ]
             expect(hasLine(lines, { q: 0, r: 0 }, { q: 1, r: 0 })).toBe(true)
         })
 
         it('should return true for existing line (reverse direction)', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } }
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' }
             ]
             expect(hasLine(lines, { q: 1, r: 0 }, { q: 0, r: 0 })).toBe(true)
         })
 
         it('should return false for non-existing line', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } }
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' }
             ]
             expect(hasLine(lines, { q: 0, r: 0 }, { q: 0, r: 1 })).toBe(false)
         })
@@ -82,9 +82,9 @@ describe('triangle-detector', () => {
     describe('detectNewTriangles', () => {
         it('should detect a complete triangle', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
-                { start: { q: 1, r: 0 }, end: { q: 0, r: 1 } },
-                { start: { q: 0, r: 1 }, end: { q: 0, r: 0 } }
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
+                { start: { q: 1, r: 0 }, end: { q: 0, r: 1 }, player: 'player1' },
+                { start: { q: 0, r: 1 }, end: { q: 0, r: 0 }, player: 'player1' }
             ]
 
             const validTriangles = [
@@ -98,8 +98,8 @@ describe('triangle-detector', () => {
 
         it('should not detect incomplete triangle', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
-                { start: { q: 1, r: 0 }, end: { q: 0, r: 1 } }
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
+                { start: { q: 1, r: 0 }, end: { q: 0, r: 1 }, player: 'player1' }
                 // Missing third edge
             ]
 
