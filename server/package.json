@@ -1,0 +1,29 @@
+{
+  "name": "cpx-qlnd-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CPX QLND Game Server - Socket.io backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.4.5",
+    "nodemon": "^3.1.11",
+    "tsx": "^4.21.0",
+    "typescript": "^5.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

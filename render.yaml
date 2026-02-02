@@ -1,0 +1,15 @@
+services:
+  # Web Service (Backend)
+  - type: web
+    name: cpx-qlnd-server
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+
+# Full deployment guide available in DEPLOYMENT.md

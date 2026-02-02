@@ -11,8 +11,8 @@ describe('game-logic', () => {
 
         it('should return true when there are some lines but valid moves remain', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
-                { start: { q: 1, r: 0 }, end: { q: 1, r: -1 } },
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
+                { start: { q: 1, r: 0 }, end: { q: 1, r: -1 }, player: 'player2' },
             ];
             expect(hasValidMoves(lines, 3)).toBe(true);
         });
@@ -20,9 +20,9 @@ describe('game-logic', () => {
         it('should return true when board has some lines but valid moves remain', () => {
             // Create a few lines connecting pegs around center
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
-                { start: { q: 0, r: 0 }, end: { q: 0, r: 1 } },
-                { start: { q: 0, r: 0 }, end: { q: -1, r: 1 } },
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
+                { start: { q: 0, r: 0 }, end: { q: 0, r: 1 }, player: 'player2' },
+                { start: { q: 0, r: 0 }, end: { q: -1, r: 1 }, player: 'player1' },
             ];
 
             // On a radius-3 board (37 pegs), 3 lines means many valid moves remain
@@ -34,19 +34,19 @@ describe('game-logic', () => {
             // All adjacent pairs for this small board:
             const lines: Line[] = [
                 // Center (0,0) to all 6 neighbors
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
-                { start: { q: 0, r: 0 }, end: { q: 0, r: 1 } },
-                { start: { q: 0, r: 0 }, end: { q: -1, r: 1 } },
-                { start: { q: 0, r: 0 }, end: { q: -1, r: 0 } },
-                { start: { q: 0, r: 0 }, end: { q: 0, r: -1 } },
-                { start: { q: 0, r: 0 }, end: { q: 1, r: -1 } },
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
+                { start: { q: 0, r: 0 }, end: { q: 0, r: 1 }, player: 'player1' },
+                { start: { q: 0, r: 0 }, end: { q: -1, r: 1 }, player: 'player1' },
+                { start: { q: 0, r: 0 }, end: { q: -1, r: 0 }, player: 'player1' },
+                { start: { q: 0, r: 0 }, end: { q: 0, r: -1 }, player: 'player1' },
+                { start: { q: 0, r: 0 }, end: { q: 1, r: -1 }, player: 'player1' },
                 // Outer ring connections (complete the hexagon)
-                { start: { q: 1, r: 0 }, end: { q: 1, r: -1 } },
-                { start: { q: 1, r: -1 }, end: { q: 0, r: -1 } },
-                { start: { q: 0, r: -1 }, end: { q: -1, r: 0 } },
-                { start: { q: -1, r: 0 }, end: { q: -1, r: 1 } },
-                { start: { q: -1, r: 1 }, end: { q: 0, r: 1 } },
-                { start: { q: 0, r: 1 }, end: { q: 1, r: 0 } },
+                { start: { q: 1, r: 0 }, end: { q: 1, r: -1 }, player: 'player2' },
+                { start: { q: 1, r: -1 }, end: { q: 0, r: -1 }, player: 'player2' },
+                { start: { q: 0, r: -1 }, end: { q: -1, r: 0 }, player: 'player2' },
+                { start: { q: -1, r: 0 }, end: { q: -1, r: 1 }, player: 'player2' },
+                { start: { q: -1, r: 1 }, end: { q: 0, r: 1 }, player: 'player2' },
+                { start: { q: 0, r: 1 }, end: { q: 1, r: 0 }, player: 'player2' },
             ];
 
             // All adjacent pegs on radius-1 board are connected - no valid moves
@@ -69,7 +69,7 @@ describe('game-logic', () => {
     describe('checkGameOver', () => {
         it('should return false when valid moves exist', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
             ];
             expect(checkGameOver(lines, 3)).toBe(false);
         });
@@ -83,7 +83,7 @@ describe('game-logic', () => {
 
         it('should be inverse of hasValidMoves', () => {
             const lines: Line[] = [
-                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 } },
+                { start: { q: 0, r: 0 }, end: { q: 1, r: 0 }, player: 'player1' },
             ];
 
             expect(checkGameOver(lines, 3)).toBe(!hasValidMoves(lines, 3));
