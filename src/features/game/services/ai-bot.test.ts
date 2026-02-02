@@ -118,7 +118,7 @@ describe('AI Bot Service', () => {
 
     it('should exclude moves that duplicate existing lines', () => {
       const existingLines: Line[] = [
-        { start: { q: 0, r: 0 }, end: { q: 3, r: 0 } },
+        { start: { q: 0, r: 0 }, end: { q: 3, r: 0 }, player: 'player1' },
       ];
       const pegs = [
         { q: 0, r: 0 },
@@ -140,7 +140,7 @@ describe('AI Bot Service', () => {
 
     it('should handle bidirectional line checking (reverse direction)', () => {
       const existingLines: Line[] = [
-        { start: { q: 3, r: 0 }, end: { q: 0, r: 0 } },
+        { start: { q: 3, r: 0 }, end: { q: 0, r: 0 }, player: 'player1' },
       ];
       const pegs = [
         { q: 0, r: 0 },
